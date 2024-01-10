@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\entrer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class EntrerController extends Controller
 {
@@ -53,6 +54,12 @@ class EntrerController extends Controller
     public function update(Request $request, entrer $entrer)
     {
         //
+    }
+
+    public function createpdf(){
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML('<h1>Test</h1>');
+        return $pdf->stream();
     }
 
     /**

@@ -103,7 +103,7 @@
 
           <li class="nav-item">
             <a class="nav-link" href="{{ route('liste-bon-entrer') }}">
-              <i class="bi bi-menu-button-wide"></i><span>Annyta</span>
+              <i class="bi bi-menu-button-wide"></i><span>Liste bon d'entrer</span>
             </a>
           </li><!-- End Components Nav -->
 

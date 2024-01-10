@@ -25,3 +25,7 @@ Route::post('/creers-bon-entrer', [EntrerController::class, 'create'])->name('cr
 Route::get('/creer-bon-entrer', [EntrerController::class, 'store'])->name('creer-bon-entrer'); //Formulaire de creation d'un bon d'entrer
 Route::post('/creer-bon-entrer', [EntrerController::class, 'create'])->name('creation-bon-entrer'); // Soumission du formulaire de creation de compte
 Route::delete('/suppression-bon-entrer', [EntrerController::class, 'destroy'])->name('suppression d\'un bon '); //Supprenion d'un bon d'entrer
+
+/** Les routes de generation des pdf  */
+
+Route::get('generer-pdf', [EntrerController::class, 'createpdf'])->name('generer-pdf');
