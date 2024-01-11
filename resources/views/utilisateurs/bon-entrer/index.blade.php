@@ -22,53 +22,68 @@
                                 <div class="col-lg-12">
 
                                     <div class="card">
-                                    <div class="card-body">
-                                        <p></p>
-                                        <div class="row">
-                                            <div class="col-lg-2">
-                                                <a class="btn btn-primary w-100 btn-md" href="{{ route('creer-bon-entrer') }}">Ajouter Bon d'entrer</a>
+                                        <div class="card-body">
+                                            <p></p>
+                                            <div class="row">
+                                                <div class="col-lg-2">
+                                                    <a class="btn btn-primary w-100 btn-md" href="{{ route('creer-bon-entrer') }}">Ajouter Bon d'entrer</a>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <input class="form-control form-control-md" type="search" name="" id="" placeholder="Rechercher un bon d'entré...">
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <button class="btn btn-primary w-100 btn-md">Recherche...</button>
+                                                </div>
+
                                             </div>
-                                            <div class="col-lg-8">
-                                                <input class="form-control form-control-md" type="search" name="" id="" placeholder="Rechercher un bon d'entré...">
-                                            </div>
-                                            <div class="col-lg-2">
-                                                <button class="btn btn-primary w-100 btn-md">Recherche...</button>
-                                            </div>
+                                            <!-- Table with stripped rows -->
+                                            <table class="table datatable table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">Numéro Bon</th>
+                                                        <th scope="col">Classe Matériel</th>
+                                                        <th scope="col">Statut Bon</th>
+                                                        <th scope="col">Item Type Matériel</th>
+                                                        <th scope="col">Marque Modele</th>
+                                                        <th scope="col">Quantité</th>
+                                                        <th scope="col">Emetteur</th>
+                                                        <th scope="col">Date sortie</th>
+                                                        <th scope="col">Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ( $patrimoines as $result)
+                                                        <tr>
+                                                            <td class="cell">{{  ($patrimoines->perPage() * ($patrimoines->currentPage() - 1 ))+ $loop->iteration }}</td>
+                                                            <td>{{ Str::upper($result->id_pat) }}</td>
+                                                            <td>{{ Str::upper($result->class_mat) }}</td>
+                                                            <td>{{ Str::upper($result->type_docu) }}</td>
+                                                            <td>{{ Str::upper($result->item_type_mat) }}</td>
+                                                            <td>{{ Str::upper($result->marque_modele) }}</td>
+                                                            <td>{{ Str::upper($result->quantite) }}</td>
+                                                            <td>{{ Str::upper($result->emetteur) }}</td>
+                                                            <td>{{ Str::upper($result->datesortiedateentrer) }}</td>
+
+                                                            <td>
+                                                                <a name="" id="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#" role="button"><i class="bi bi-eye-fill"></i></a>&nbsp;
+                                                                <a name="" id="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" href="#" role="button" href="#" role="button"> <i class="bi bi-pencil-fill"></i></a>&nbsp;
+                                                                <a name="" id="" class="btn btn-primary" href="#" role="button"> <i class="bi bi-printer-fill"></i></a>&nbsp;
+                                                                <a name="" id="" class="btn btn-danger" href="#" role="button"> <i class="bi bi-trash-fill"></i></a>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+
+                                                </tbody>
+                                            </table>
+                                            <!-- End Table with stripped rows -->
+                                            <nav class="app-pagination">
+                                                <ul class="pagination justify-content-center">
+                                                    {{ $patrimoines->links()}}
+                                                </ul>
+                                            </nav><!--//app-pagination-->
 
                                         </div>
-                                        <!-- Table with stripped rows -->
-                                        <table class="table datatable table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">#</th>
-                                                    <th scope="col">Name</th>
-                                                    <th scope="col">Position</th>
-                                                    <th scope="col">Age</th>
-                                                    <th scope="col">Start Date</th>
-                                                    <th scope="col">Start short</th>
-                                                    <th scope="col">Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Brandon Jacob</td>
-                                                    <td>Designer</td>
-                                                    <td>28</td>
-                                                    <td>28</td>
-                                                    <td>2016-05-25</td>
-                                                    <td>
-                                                        <a name="" id="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#" role="button"><i class="bi bi-eye-fill"></i></a>&nbsp;
-                                                        <a name="" id="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" href="#" role="button" href="#" role="button"> <i class="bi bi-pencil-fill"></i></a>&nbsp;
-                                                        <a name="" id="" class="btn btn-primary" href="#" role="button"> <i class="bi bi-printer-fill"></i></a>&nbsp;
-                                                        <a name="" id="" class="btn btn-danger" href="#" role="button"> <i class="bi bi-trash-fill"></i></a>
-                                                    </td>
-                                                </tr>
-
-                                            </tbody>
-                                        </table>
-                                        <!-- End Table with stripped rows -->
-                                    </div>
                                     </div>
 
                                 </div>

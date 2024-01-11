@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\entrer;
 use Illuminate\Http\Request;
+use App\Models\patrimoines;
 use Illuminate\Support\Facades\App;
 
 class EntrerController extends Controller
@@ -13,7 +14,8 @@ class EntrerController extends Controller
      */
     public function index()
     {
-        return view('utilisateurs.bon-entrer.index');
+        $patrimoines = patrimoines::orderByDesc('id_pat')->paginate(1);
+        return view('utilisateurs.bon-entrer.index', compact('patrimoines'));
     }
 
     /**

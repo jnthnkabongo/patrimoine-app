@@ -10,6 +10,7 @@ class patrimoines extends Model
     use HasFactory;
     protected $fillable = [
         'id_pat',
+        'type_docu',
         'class_mat',
         'item_type_mat',
         'marque_modele',

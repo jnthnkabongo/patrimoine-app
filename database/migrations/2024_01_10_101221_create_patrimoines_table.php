@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('patrimoines', function (Blueprint $table) {
             $table->increments('id_pat');
+            $table->integer('type_docu');
             $table->string('class_mat');
             $table->string('item_type_mat');
             $table->string('marque_modele');
@@ -25,7 +26,7 @@ return new class extends Migration
             $table->string('province_provenance');
             $table->string('provenance_destination');
             $table->string('statut_provenance');
-            $table->string('date-sortie-date-entrer');
+            $table->string('datesortiedateentrer');
             $table->unsignedBigInteger('fonct_id');
             $table->foreign('fonct_id')->references('id_fonct')->on('fonctions');
             $table->timestamps();
