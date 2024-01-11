@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class fonctions extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'if_fonct',
+        'intitule'
+    ];
 }
