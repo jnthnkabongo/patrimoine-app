@@ -15,7 +15,9 @@ return new class extends Migration
             $table->increments('id_pers');
             $table->string('nom_pers');
             $table->string('genre');
-            $table->foreign('depart_id')->references('id')->on('departements');
+            $table->unsignedBigInteger('depart_id');
+            $table->unsignedBigInteger('fonct_id');
+            $table->foreign('depart_id')->references('id_depart')->on('departements');
             $table->foreign('fonct_id')->references('id')->on('fonctions');
             $table->timestamps();
         });
