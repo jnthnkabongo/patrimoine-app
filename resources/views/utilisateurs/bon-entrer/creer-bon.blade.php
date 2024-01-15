@@ -15,67 +15,163 @@
               <div class="col-lg-12">
                 <div class="card">
                   <div class="card-body">
-                    <h1 >Enregistrenent de bons de sortie/Entré</h1>
+                    <h1 >Enregistrenent de bons de sortie / Entré</h1>
 
                     <!-- Multi Columns Form -->
                     <form class="row g-3">
                         <div class="col-md-6">
                             <label for="inputState" class="form-label">Statut bon</label>
+                            <select id="bon-select" class="form-select" name="bon-select">
+                              <option selected>Choisir le status du bon</option>
+                              @foreach ($listestatusbon as $resultstatutbon)
+                                <option name="bon-select" value="{{$resultstatutbon->id_doc}}" >{{Str::upper ($resultstatutbon->nomination) }}</option>
+                              @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputState" class="form-label">Fonction Porteur</label>
                             <select id="inputState" class="form-select">
-                              <option selected>---</option>
+                              <option value="">Choisir une fonction du porteur</option>
+                              @foreach ($listeporteur as $resultporteur)
+                                <option name="" value="{{ $resultporteur->id_fonct }}" >{{ Str::upper($resultporteur->intitule) }}</option>
+                              @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputName5" class="form-label">Numéro Bon</label>
+                            <input type="text" class="form-control" id="inputName5">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputState" class="form-label">Cellule/Direction</label>
+                            <select id="inputState" class="form-select">
+                                <option value="">Choisir le département ou la Cellule / Direction</option>
+                                @foreach ($listedepartement as $resultdepartement)
+                                  <option name="" value="{{ $resultdepartement->id_depart }}" >{{ Str::upper($resultdepartement->intitules) }}</option>
+                                @endforeach
+                              </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputState" class="form-label">Classe Matériel</label>
+                            <select id="inputState" class="form-select">
+                              <option selected>----</option>
                               <option>...</option>
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <label for="inputName5" class="form-label">Your Name</label>
-                            <input type="select" class="form-control" id="inputName5">
+                            <label for="inputState" class="form-label">Autorisant</label>
+                            <select id="inputState" class="form-select">
+                                <option value="">Choisir l'autorisant</option>
+                                @foreach ($listeporteur as $resultporteur)
+                                  <option name="" value="{{ $resultporteur->id_fonct }}" >{{ Str::upper($resultporteur->intitule) }}</option>
+                                @endforeach
+                              </select>
                         </div>
                         <div class="col-md-6">
-                            <label for="inputName5" class="form-label">Your Name</label>
+                            <label for="inputState" class="form-label">Item Type Matériel</label>
+                            <select id="inputState" class="form-select">
+                              <option selected>----</option>
+                              <option>...</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputState" class="form-label">Fonction Autorisant</label>
+                            <select id="inputState" class="form-select">
+                              <option selected>----</option>
+                              <option>...</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputState" class="form-label">Marque Modèle</label>
+                            <select id="inputState" class="form-select">
+                              <option selected>----</option>
+                              <option>...</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputState" class="form-label">Emetteur</label>
+                            <select id="inputState" class="form-select">
+                              <option selected>----</option>
+                              <option>...</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputName5" class="form-label">Quantité</label>
+                            <input type="number" class="form-control" id="inputName5">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputState" class="form-label">Fonction Emetteur</label>
+                            <select id="inputState" class="form-select">
+                              <option selected>----</option>
+                              <option>...</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputName5" class="form-label">Laptop et Adaptateur</label>
                             <input type="text" class="form-control" id="inputName5">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputEmail5" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="inputEmail5">
+                            <label for="inputEmail5" class="form-label">Date sortie/Date d'entré</label>
+                            <input type="date" class="form-control" id="inputEmail5">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputPassword5" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="inputPassword5">
+                            <label for="inputPassword5" class="form-label">Identifiant Unique (Numéro Série)</label>
+                            <input type="text" class="form-control" id="inputPassword5">
                         </div>
-                        <div class="col-12">
-                            <label for="inputAddress5" class="form-label">Address</label>
-                            <input type="text" class="form-control" id="inputAddres5s" placeholder="1234 Main St">
+                        <div class="col-6">
+                            <label for="inputAddress5" class="form-label">Motif</label>
+                            <input type="text" class="form-control" id="inputAddres5s">
                         </div>
-                        <div class="col-12">
-                            <label for="inputAddress2" class="form-label">Address 2</label>
+                        <div class="col-6">
+                            <label for="inputAddress2" class="form-label">B</label>
                             <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputCity" class="form-label">City</label>
+                            <label for="inputState" class="form-label">Province de destination / Provenance</label>
+                            <select id="inputState" class="form-select">
+                              <option selected>----</option>
+                              <option>...</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputCity" class="form-label">P</label>
                             <input type="text" class="form-control" id="inputCity">
                         </div>
-                        <div class="col-md-4">
-                            <label for="inputState" class="form-label">State</label>
+                        <div class="col-md-6">
+                            <label for="inputState" class="form-label">Destination / Province</label>
                             <select id="inputState" class="form-select">
                             <option selected>Choose...</option>
                             <option>...</option>
                             </select>
                         </div>
-                        <div class="col-md-2">
-                            <label for="inputZip" class="form-label">Zip</label>
-                            <input type="text" class="form-control" id="inputZip">
+                        <div class="col-md-6">
+                            <label for="inputState" class="form-label">Genre</label>
+                            <select id="inputState" class="form-select">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                            </select>
                         </div>
-                        <div class="col-12">
-                            <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck">
-                            <label class="form-check-label" for="gridCheck">
-                                Check me out
-                            </label>
-                            </div>
+                        <div class="col-md-6">
+                            <label for="inputState" class="form-label">Statut Provenance</label>
+                            <select id="inputState" class="form-select">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                            </select>
                         </div>
+                        <div class="col-md-6">
+                            <label for="inputState" class="form-label">Porteur Matériel</label>
+                            <select id="inputState" class="form-select">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputState" class="form-label">Observation</label>
+                            <input type="text" class="form-control" name="" id="">
+                        </div>
+
                       <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="reset" class="btn btn-secondary">Reset</button>
+                        <button type="submit" class="btn btn-primary w-100">Enregistrer</button>
+
                       </div>
                     </form><!-- End Multi Columns Form -->
 

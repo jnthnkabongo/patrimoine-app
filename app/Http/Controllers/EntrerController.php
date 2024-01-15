@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\departements;
 use App\Models\entrer;
 use Illuminate\Http\Request;
 use App\Models\patrimoines;
+use App\Models\documents;
+use App\Models\fonctions;
 use Illuminate\Support\Facades\App;
 
 class EntrerController extends Controller
@@ -31,7 +34,10 @@ class EntrerController extends Controller
      */
     public function store(Request $request)
     {
-        return view('utilisateurs.bon-entrer.creer-bon');
+        $listestatusbon = documents::all();
+        $listeporteur = fonctions::all();
+        $listedepartement = departements::all();
+        return view('utilisateurs.bon-entrer.creer-bon', compact('listestatusbon','listeporteur','listedepartement'));
     }
 
     /**
