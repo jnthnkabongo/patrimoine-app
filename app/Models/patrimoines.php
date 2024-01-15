@@ -11,9 +11,6 @@ class patrimoines extends Model
     protected $fillable = [
         'id_pat',
         'type_docu',
-        'class_mat',
-        'item_type_mat',
-        'marque_modele',
         'quantite',
         'numero_serie',
         'autorisant',

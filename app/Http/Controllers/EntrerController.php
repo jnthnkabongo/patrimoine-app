@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\cellules;
+use App\Models\classe_materiels;
 use App\Models\departements;
 use App\Models\entrer;
 use Illuminate\Http\Request;
@@ -36,8 +38,10 @@ class EntrerController extends Controller
     {
         $listestatusbon = documents::all();
         $listeporteur = fonctions::all();
+        $listecellule = cellules::all();
         $listedepartement = departements::all();
-        return view('utilisateurs.bon-entrer.creer-bon', compact('listestatusbon','listeporteur','listedepartement'));
+        $listeclasse = classe_materiels::all();
+        return view('utilisateurs.bon-entrer.creer-bon', compact('listestatusbon','listeporteur','listedepartement','listecellule', 'listeclasse'));
     }
 
     /**

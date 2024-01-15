@@ -45,17 +45,20 @@
                             <label for="inputState" class="form-label">Cellule/Direction</label>
                             <select id="inputState" class="form-select">
                                 <option value="">Choisir le département ou la Cellule / Direction</option>
-                                @foreach ($listedepartement as $resultdepartement)
-                                  <option name="" value="{{ $resultdepartement->id_depart }}" >{{ Str::upper($resultdepartement->intitules) }}</option>
+                                @foreach ($listecellule as $resultcellule)
+                                  <option name="" value="{{ $resultcellule->id_cell }}" >{{ Str::upper($resultcellule->nom_cell) }}</option>
                                 @endforeach
                               </select>
                         </div>
                         <div class="col-md-6">
                             <label for="inputState" class="form-label">Classe Matériel</label>
                             <select id="inputState" class="form-select">
-                              <option selected>----</option>
-                              <option>...</option>
+                                <option value="">Choisir la classe du matériel</option>
+                                @foreach ($listeclasse as $resultclasse)
+                                    <option value="{{ $resultclasse->id_class_mat }}">{{ $resultclasse->nom_class }}</option>
+                                @endforeach
                             </select>
+
                         </div>
                         <div class="col-md-6">
                             <label for="inputState" class="form-label">Autorisant</label>

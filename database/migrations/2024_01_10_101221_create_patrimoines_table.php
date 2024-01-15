@@ -14,9 +14,6 @@ return new class extends Migration
         Schema::create('patrimoines', function (Blueprint $table) {
             $table->increments('id_pat');
             $table->integer('type_docu');
-            $table->string('class_mat');
-            $table->string('item_type_mat');
-            $table->string('marque_modele');
             $table->string('quantite');
             $table->integer('numero_serie');
             $table->string('autorisant');

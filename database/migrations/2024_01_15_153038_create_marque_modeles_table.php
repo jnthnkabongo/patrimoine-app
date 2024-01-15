@@ -1,0 +1,30 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('marque_modeles', function (Blueprint $table) {
+            $table->increments('id_marque');
+            $table->string('nomination');
+            $table->unsignedBigInteger('id_class_mat');
+            $table->foreign('id_class_mat')->references('id_class_mat')->on('classe_materiels');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('marque_modeles');
+    }
+};
