@@ -45,8 +45,8 @@
                             <label for="inputState" class="form-label">Cellule/Direction</label>
                             <select id="inputState" class="form-select">
                                 <option value="">Choisir le département ou la Cellule / Direction</option>
-                                @foreach ($listecellule as $resultcellule)
-                                  <option name="" value="{{ $resultcellule->id_cell }}" >{{ Str::upper($resultcellule->nom_cell) }}</option>
+                                @foreach ($listedepartement as $resultdepartement)
+                                  <option name="" value="{{ $resultdepartement->id_depart }}" >{{ Str::upper($resultdepartement->intitules) }}</option>
                                 @endforeach
                               </select>
                         </div>
@@ -71,23 +71,27 @@
                         </div>
                         <div class="col-md-6">
                             <label for="inputState" class="form-label">Item Type Matériel</label>
+
                             <select id="inputState" class="form-select">
-                              <option selected>----</option>
-                              <option>...</option>
-                            </select>
+                                <option selected>Choisir le type de matériel</option>
+                                @foreach ($listeitems as $resultitem)
+                                  <option name="" value="{{ $resultitem->id_type }}" >{{ Str::upper($resultitem->nom_type) }}</option>
+                                @endforeach
+                              </select>
                         </div>
                         <div class="col-md-6">
                             <label for="inputState" class="form-label">Fonction Autorisant</label>
-                            <select id="inputState" class="form-select">
-                              <option selected>----</option>
-                              <option>...</option>
-                            </select>
+                            <select id="inputState" class="form-select" disabled>
+                                <option selected>DIRECTEUR</option>
+                              </select>
                         </div>
                         <div class="col-md-6">
                             <label for="inputState" class="form-label">Marque Modèle</label>
                             <select id="inputState" class="form-select">
-                              <option selected>----</option>
-                              <option>...</option>
+                                <option selected>Choisir la marque du modèle</option>
+                                @foreach ($listemarque as $resultmarque)
+                                  <option name="" value="{{ $resultmarque->id_marque }}" >{{ Str::upper($resultmarque->nomination) }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col-md-6">
@@ -104,8 +108,10 @@
                         <div class="col-md-6">
                             <label for="inputState" class="form-label">Fonction Emetteur</label>
                             <select id="inputState" class="form-select">
-                              <option selected>----</option>
-                              <option>...</option>
+                              <option selected>Choisir la fonction de l'emetteur</option>
+                                @foreach ($listeporteur as $resultporteur)
+                                    <option name="" value="{{ $resultporteur->id_fonct }}" >{{ Str::upper($resultporteur->intitule) }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col-md-6">

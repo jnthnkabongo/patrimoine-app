@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 use App\Models\patrimoines;
 use App\Models\documents;
 use App\Models\fonctions;
+use App\Models\item_type;
+use App\Models\marque_modele;
+use App\Models\personnes;
 use Illuminate\Support\Facades\App;
 
 class EntrerController extends Controller
@@ -36,12 +39,18 @@ class EntrerController extends Controller
      */
     public function store(Request $request)
     {
-        $listestatusbon = documents::all();
+        $listestatusbon = documents::all(); //
         $listeporteur = fonctions::all();
         $listecellule = cellules::all();
         $listedepartement = departements::all();
         $listeclasse = classe_materiels::all();
-        return view('utilisateurs.bon-entrer.creer-bon', compact('listestatusbon','listeporteur','listedepartement','listecellule', 'listeclasse'));
+        $listecellules = cellules::all();
+        $listeitems = item_type::all();
+        $listemarque = marque_modele::all();
+        $listepersonnes = personnes::all(); // Toutes les connexes qui interargissent avec le systeme
+        return view('utilisateurs.bon-entrer.creer-bon',
+        compact('listestatusbon','listeporteur','listedepartement',
+        'listecellule', 'listeclasse','listecellules','listeitems','listemarque','listepersonnes'));
     }
 
     /**
