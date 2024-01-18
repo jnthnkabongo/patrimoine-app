@@ -64,8 +64,8 @@
                             <label for="inputState" class="form-label">Autorisant</label>
                             <select id="inputState" class="form-select">
                                 <option value="">Choisir l'autorisant</option>
-                                @foreach ($listeporteur as $resultporteur)
-                                  <option name="" value="{{ $resultporteur->id_fonct }}" >{{ Str::upper($resultporteur->intitule) }}</option>
+                                @foreach ($listepersonnes as $resultpersonne)
+                                  <option name="" value="{{ $resultpersonne->id_pers }}" >{{ Str::upper($resultpersonne->nom_pers) }}</option>
                                 @endforeach
                               </select>
                         </div>
@@ -97,8 +97,10 @@
                         <div class="col-md-6">
                             <label for="inputState" class="form-label">Emetteur</label>
                             <select id="inputState" class="form-select">
-                              <option selected>----</option>
-                              <option>...</option>
+                              <option selected>Choisir l'emetteur</option>
+                              @foreach ($listeusers as $resultusers)
+                                <option name="" value="{{ $listeusers->id }}">{{ Str::upper($listeusers->name) }}</option>
+                              @endforeach
                             </select>
                         </div>
                         <div class="col-md-6">

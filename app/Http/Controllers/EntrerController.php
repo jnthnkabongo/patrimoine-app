@@ -13,6 +13,7 @@ use App\Models\fonctions;
 use App\Models\item_type;
 use App\Models\marque_modele;
 use App\Models\personnes;
+use App\Models\User;
 use Illuminate\Support\Facades\App;
 
 class EntrerController extends Controller
@@ -47,10 +48,11 @@ class EntrerController extends Controller
         $listecellules = cellules::all();
         $listeitems = item_type::all();
         $listemarque = marque_modele::all();
-        $listepersonnes = personnes::all(); // Toutes les connexes qui interargissent avec le systeme
+        $listepersonnes = personnes::all(); // Toutes les connexes qui interargissent avec le systeme en dehosr de la direction
+        $listeusers = User::all();
         return view('utilisateurs.bon-entrer.creer-bon',
         compact('listestatusbon','listeporteur','listedepartement',
-        'listecellule', 'listeclasse','listecellules','listeitems','listemarque','listepersonnes'));
+        'listecellule', 'listeclasse','listecellules','listeitems','listemarque','listepersonnes','listeusers'));
     }
 
     /**
